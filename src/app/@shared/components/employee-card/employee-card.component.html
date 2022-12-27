@@ -1,0 +1,22 @@
+<div class="card mb-2">
+    <div class="card-body">
+      <h5 class="card-title">{{employee.name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <span>Age : </span>
+        <span>{{employee.age}}</span>
+      </li>
+      <li class="list-group-item">
+        <span>B.O.D : </span>
+        <span>{{employee.birthOfDate | date}}</span>
+      </li>
+      <li class="list-group-item">       <span>Address : </span>
+        <span>{{employee.address }}</span></li>
+    </ul>
+    <div class="card-body p-1 d-flex justify-content-between">
+      <button class="btn btn-primary" (click)="goToUpdate(employee.id)">Update</button>
+      <button class="btn btn-primary" (click)="deleteEmployee(employee.id)">Delete</button>
+      <button [hidden]="page=='show'" class="btn btn-primary" (click)="goToDetails(employee.id)">Show</button>
+    </div>
+  </div>

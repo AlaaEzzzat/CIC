@@ -1,0 +1,44 @@
+<div class="formPage pt-5">
+    <div class="updateSection">
+      <div class="container-fluid">
+        <h2 class="pb-1 text-center">{{method}} Employee Information</h2>
+        <form
+          [formGroup]="EmployeeForm"
+          (ngSubmit)="addEmployeeData()"
+          class="myform m-auto d-flex flex-column align-items-center justify-content-center"
+        >
+        <div class=" row w-100 mb-5">
+          <ng-container *ngFor=" let input of inputs">
+            <div class="col-md-3 mb-3 col-sm-6 col-xs-12">
+              <label [for]="input" class="form-label">{{input}}</label>
+              <input
+                [type]="input == 'birthOfDate'? 'date':input == 'age'? 'number':'text'"
+                class="form-control"
+                [name]="input"
+                [id]="input"
+                [formControlName]="input"
+                [class.is-valid]="f[input].valid"
+                [class.is-invalid]="f[input].invalid && f[input].touched"
+              />
+              <div
+                class="alert alert-warning mt-1"
+                [hidden]="f[input].valid || f[input].untouched"
+              >
+                <span *ngIf="f[input]?.errors?.['required']">{{input}} is required</span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+     <button
+            type="submit"
+            class="btn btn-success px-5"
+            [disabled]="!EmployeeForm.valid"
+          >
+            {{method}}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  

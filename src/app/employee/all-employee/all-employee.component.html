@@ -1,0 +1,10 @@
+<div class="container-fluid p-3">
+<div class="row pb-3">
+   <ng-container *ngFor="let employee of employees">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  ">
+         <app-employee-card [allEmployee]="allEmployee" [employee]="employee" ></app-employee-card>
+      </div>
+   </ng-container>
+</div>
+ <app-add-employee [allEmployee]="allEmployee"></app-add-employee>
+</div>
